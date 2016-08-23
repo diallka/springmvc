@@ -1,10 +1,10 @@
 <%-- 
-    Document   : accueil
-    Created on : 23 août 2016, 12:05:23
+    Document   : liste_series
+    Created on : 23 août 2016, 15:32:34
     Author     : admin
 --%>
 
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,11 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Welcome to the Accueil!</h1>
-        <h3>${welcome}</h3>
-       
-        
-        
-        <h3>${goodbye}</h3>
+        <c:forEach items="${listeseries}" var="serie">
+            ${serie.id}
+        </c:forEach>
     </body>
 </html>

@@ -112,7 +112,9 @@ public class Film implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Film[ id=" + id + " ]";
+        return "Film{" + "id=" + id + ", titre=" + titre + ", synopsis=" + synopsis + ", anneeProd=" + anneeProd + ", genre=" + genre + '}';
     }
+
+  
     
 }
