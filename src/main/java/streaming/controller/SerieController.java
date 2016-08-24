@@ -17,7 +17,7 @@ import streaming.service.SerieCrudService;
  *
  * @author admin
  */
-@Controller
+//@Controller
 public class SerieController {
     
     @Autowired

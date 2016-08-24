@@ -23,7 +23,10 @@
             <br/>
             Synopsis: <form:textarea path="synopsis"></form:textarea>
             <br/>
+            Genre: <form:label path=""></form:label>
             <input type="submit" value="ajouter"/>
         </form:form>
+            <br/>
+            <a href="liste_films">Liste films</a>
     </body>
 </html>

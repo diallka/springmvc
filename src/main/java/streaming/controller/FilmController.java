@@ -20,7 +20,7 @@ import streaming.service.FilmCrudService;
  *
  * @author tom
  */
-@Controller
+//@Controller
 
 public class FilmController {
     

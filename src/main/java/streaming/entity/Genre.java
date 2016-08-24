@@ -79,7 +79,9 @@ public class Genre implements Serializable {
 
     @Override
     public String toString() {
-        return "streaming.entity.Genre[ id=" + id + " ]";
+        return "Genre{" + "id=" + id + ", nom=" + nom + ", films=" + films + '}';
     }
+
+   
 
 }
