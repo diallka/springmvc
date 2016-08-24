@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author admin
  */
 
-//@Controller
+@Controller
 public class HomePageController {
     
     @RequestMapping(value ="/home" , method = RequestMethod.GET)

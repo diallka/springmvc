@@ -1,8 +1,9 @@
 <%-- 
-    Document   : ajout_films
-    Created on : 23 août 2016, 16:17:00
-    Author     : admin
+    Document   : _TEMPLATE
+    Created on : 29 juin 2016, 18:36:08
+    Author     : Pro
 --%>
+
 <%-- Debut entete--%>
 
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -22,27 +23,3 @@
         </table>
     </div> 
 <%-- Fin entete--%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Ajout films!</h1>
-
-        <form:form modelAttribute="film">
-            Titre: <form:input path="titre"></form:input>
-                <br/>
-                Année: <form:input path="anneeProd"></form:input>
-                <br/>
-                Synopsis: <form:textarea path="synopsis"></form:textarea>
-                <br/>
-                Genre: <form:select  path="genre.id" items="${listegenres}" itemLabel="nom" itemValue="id">
-
-            </form:select>
-            <input type="submit" value="ajouter"/>
-        </form:form>
-
-    </body>
-</html>

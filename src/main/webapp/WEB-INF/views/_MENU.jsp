@@ -1,9 +1,8 @@
 <%-- 
-    Document   : accueil
-    Created on : 23 août 2016, 12:05:23
-    Author     : admin
+    Document   : _MENU
+    Created on : 29 juin 2016, 18:36:24
+    Author     : Pro
 --%>
-
 <%-- Debut entete--%>
 
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -23,8 +22,3 @@
         </table>
     </div> 
 <%-- Fin entete--%>
-
-<h3>${welcome}</h3>
-
-<h3>${goodbye}</h3>
-

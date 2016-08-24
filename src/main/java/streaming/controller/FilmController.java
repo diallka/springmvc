@@ -14,50 +14,94 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import streaming.entity.Film;
+import streaming.entity.Genre;
 import streaming.service.FilmCrudService;
+import streaming.service.GenreCrudService;
 
 /**
  *
  * @author tom
  */
-//@Controller
+@Controller
 
 public class FilmController {
-    
-    @Autowired
+
+    @Autowired //Obligatoire sinon renvoit NuLLPointException
     private FilmCrudService fCrudService;
-   
-    @RequestMapping(value="/ajouter_films", method = RequestMethod.POST)
-    public String ajouterFilmsPOST( @ModelAttribute("film") Film film){
-        fCrudService.save(film);
-        //Renvoyer vers une jsp
-        return "redirect:/liste_films";
-    }
-    //*****************************************************************
-    @RequestMapping(value="/ajouter_films", method = RequestMethod.GET)
-    public String ajouterFilmsGET(Model m){
+
+    @Autowired //Obligatoire sinon renvoit NuLLPointException
+    private GenreCrudService gCrudService;
+
+    //***************************************************************************************
+    @RequestMapping(value = "/ajouter_films", method = RequestMethod.GET)
+    public String ajouterFilmsGET(Model m) {
         //Initialiser nouveau film vide
         Film film = new Film();
-        //film.setTitre("Back");
+        film.setTitre("Back");
         m.addAttribute("film", film);
+
+        //Iterable<Genre> genres = gCrudService.findAll();
+        m.addAttribute("listegenres", gCrudService.findAllByOrderByNom());
+
         //Renvoyer vers la jsp correspondante
         return "ajout_films";
     }
-     //*****************************************************************
-    @RequestMapping(value="/liste_films", method = RequestMethod.GET)
-    public String listerFilms(Model m){
+
+    //***************************************************************************************
+    @RequestMapping(value = "/ajouter_films", method = RequestMethod.POST)
+    public String ajouterFilmsPOST(@ModelAttribute("film") Film film) {
+        fCrudService.save(film);
+        //Renvoyer vers une jsp
+        return "redirect:/lister_films";
+    }
+
+    //***************************************************************************************
+    //***************************************************************************************
+    @RequestMapping(value = "/lister_films", method = RequestMethod.GET)
+    public String listerFilms(Model f) {
         Iterable<Film> films = fCrudService.findAll();
-        m.addAttribute("listefilms", films);
-        m.addAttribute("titre", "Liste de films: ");
+        f.addAttribute("listefilms", films);
+        f.addAttribute("titre", "Liste de films: ");
+
         return "liste_films";
     }
-     //*****************************************************************
-    @RequestMapping(value="find/{id}", method = RequestMethod.GET)
+    //***************************************************************************************
+    //***************************************************************************************
+
+    @RequestMapping(value = "/supprimer_film/{idDuFilm}", method = RequestMethod.GET)
+    public String supprimerFilms(@PathVariable("idDuFilm") long idFilm) {
+        fCrudService.delete(idFilm);
+        return "redirect:/lister_films";
+    }
+
+    //***************************************************************************************
+    //***************************************************************************************
+    @RequestMapping(value = "/modifier_film/{idDuFilm}", method = RequestMethod.GET)
+    public String modifierFilmGET(Model m, @PathVariable("idDuFilm") Long idFilm) {
+
+        m.addAttribute("film", fCrudService.findOne(idFilm));
+        m.addAttribute("genres", gCrudService.findAllByOrderByNom());
+
+        return "modifer_film";
+    }
+
+    //****************************************************************************************
+    @RequestMapping(value = "/modifier_film/{idDuFilm}", method = RequestMethod.POST)
+    public String modifierFilmPOST(@PathVariable("idDuFilm") Long idFilm, @ModelAttribute("film") Film film) {
+        film.setId(idFilm);
+        fCrudService.save(film);
+        //Renvoyer vers une jsp
+        return "redirect:/lister_films";
+    }
+
+    //***************************************************************************************
+    //***************************************************************************************
+    @RequestMapping(value = "find/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Film findById( @PathVariable("id") long id){
-        
+    public Film findById(@PathVariable("id") long id) {
+
         Film f = new Film(1L, "Karate Kid", "blabla", 1989L, null);
-        
+
         return f;
     }
 }

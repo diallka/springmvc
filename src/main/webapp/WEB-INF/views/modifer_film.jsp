@@ -1,8 +1,9 @@
 <%-- 
-    Document   : ajout_films
-    Created on : 23 août 2016, 16:17:00
+    Document   : modifer_film
+    Created on : 24 août 2016, 16:00:25
     Author     : admin
 --%>
+
 <%-- Debut entete--%>
 
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -29,16 +30,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Ajout films!</h1>
+        <h1>Modifier film!</h1>
 
         <form:form modelAttribute="film">
-            Titre: <form:input path="titre"></form:input>
+            Titre: <form:input path="titre" ></form:input>
                 <br/>
                 Année: <form:input path="anneeProd"></form:input>
                 <br/>
                 Synopsis: <form:textarea path="synopsis"></form:textarea>
                 <br/>
-                Genre: <form:select  path="genre.id" items="${listegenres}" itemLabel="nom" itemValue="id">
+                Genre: <form:select  path="genre.id" items="${genres}" itemLabel="nom" itemValue="id">
 
             </form:select>
             <input type="submit" value="ajouter"/>

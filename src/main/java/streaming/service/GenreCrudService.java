@@ -15,6 +15,10 @@ import streaming.entity.Genre;
  */
 public interface GenreCrudService extends CrudRepository<Genre, Long>{
 
+    public List<Genre> findAllByOrderByNom();
+
     //public Iterable<Genre> findAllOrderByNom();
+
+   
     
 }

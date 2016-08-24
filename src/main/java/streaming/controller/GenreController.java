@@ -20,7 +20,7 @@ import streaming.service.GenreCrudService;
  *
  * @author admin
  */
-//@Controller
+@Controller
 public class GenreController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class GenreController {
 
     @RequestMapping(value = "/lister_genres", method = RequestMethod.GET)
     public String listerSeries(Model m) {
-        Iterable<Genre> genres = gCrudService.findAll();
+        Iterable<Genre> genres = gCrudService.findAllByOrderByNom();
         m.addAttribute("listegenres", genres);
         //m.addAttribute("titre", "Liste des series: ");
         return "liste_genres";

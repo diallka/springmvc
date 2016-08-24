@@ -17,13 +17,13 @@ import streaming.service.SerieCrudService;
  *
  * @author admin
  */
-//@Controller
+@Controller
 public class SerieController {
     
     @Autowired
     private SerieCrudService sCrudService;
     
-      @RequestMapping(value="/liste_series", method = RequestMethod.GET)
+      @RequestMapping(value="/lister_series", method = RequestMethod.GET)
     public String listerSeries(Model m){
         Iterable<Serie> series = sCrudService.findAll();
         m.addAttribute("listeseries", series);
