@@ -26,10 +26,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Film Page</title>
     </head>
     <body>
-        <h1><spring:message code="cle1"/></h1>
+        <h1><spring:message code="cle1" /></h1>
         <c:forEach items="${listefilms}" var="film">
             ${film.titre} 
                           <a href="<spring:url value="/modifier_film/${film.id}"></spring:url>"> ¤</a>

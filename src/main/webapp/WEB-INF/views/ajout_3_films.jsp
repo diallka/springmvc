@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Ajout 3 Films</h1>
-        <form:form modelAttribute="dto">
+         <form:form modelAttribute="dto">
             Titre: <form:input path="film1.titre"></form:input>
                 <br/>
                 Année: <form:input path="film1.anneeProd"></form:input>
@@ -25,7 +25,24 @@
 
             </form:select>
                 
-          
+             Titre: <form:input path="film1.titre"></form:input>
+                <br/>
+                Année: <form:input path="film1.anneeProd"></form:input>
+                <br/>
+                Synopsis: <form:textarea path="film1.synopsis"></form:textarea>
+                <br/>
+                Genre: <form:select  path="film1.genre.id" items="${listegenres}" itemLabel="nom" itemValue="id">
+
+            </form:select>
+             Titre: <form:input path="film1.titre"></form:input>
+                <br/>
+                Année: <form:input path="film1.anneeProd"></form:input>
+                <br/>
+                Synopsis: <form:textarea path="film1.synopsis"></form:textarea>
+                <br/>
+                Genre: <form:select  path="film1.genre.id" items="${listegenres}" itemLabel="nom" itemValue="id">
+
+            </form:select>
             <input type="submit" value="ajouter"/>
         </form:form>
     </body>
