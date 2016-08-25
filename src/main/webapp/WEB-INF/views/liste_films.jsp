@@ -29,7 +29,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Liste des films</h1>
+        <h1><spring:message code="cle1"/></h1>
         <c:forEach items="${listefilms}" var="film">
             ${film.titre} 
                           <a href="<spring:url value="/modifier_film/${film.id}"></spring:url>"> ¤</a>
