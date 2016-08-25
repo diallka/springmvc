@@ -11,7 +11,7 @@ import streaming.entity.Film;
  *
  * @author pro
  */
-public class FilmsDTO {
+public class Films3DTO {
 
     Film film1;
     Film film2;

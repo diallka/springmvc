@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import streaming.dto.FilmsDTO;
+import streaming.dto.Films3DTO;
 import streaming.entity.Film;
 import streaming.entity.Genre;
 import streaming.service.FilmCrudService;
@@ -38,15 +38,15 @@ public class FilmController {
     @RequestMapping(value = "/ajouter_3_films", method = RequestMethod.GET)
     public String ajouter3FilmsGET(Model m){
         
-        m.addAttribute("dto", new FilmsDTO());
-        m.addAttribute("listegenres",gCrudService.findAllByOrderByNom());
-        
+        m.addAttribute("listegenres", gCrudService.findAllByOrderByNom());
+        m.addAttribute("dto", new Films3DTO());
+
         return "ajout_3_films";
         
     }
     //***************************************************************************************
     @RequestMapping(value = "/ajouter_3_films", method = RequestMethod.POST)
-    public String ajouter3FilmsPOST(@ModelAttribute("dto") FilmsDTO monDTO){
+    public String ajouter3FilmsPOST(@ModelAttribute("dto") Films3DTO monDTO){
 //        fCrudService.save(monDTO.getFilm1());
 //        fCrudService.save(monDTO.getFilm2());
 //        fCrudService.save(monDTO.getFilm3());
