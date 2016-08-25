@@ -5,8 +5,11 @@
  */
 package streaming.controller;
 
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import streaming.dto.ValidationDTO;
@@ -24,6 +27,17 @@ public class ValidationController {
         m.addAttribute("validator", new ValidationDTO());
         
         return "validation_form";
+        
+    }
+    
+    @RequestMapping(value = "/validation", method = RequestMethod.POST)
+    public String validationPOST(@ModelAttribute("validator") @Valid ValidationDTO validDTO, BindingResult result){
+        
+        //checks validation
+        if(result.hasErrors())
+            return "validation_form";
+        
+        return("redirect:/home");
         
     }
     
