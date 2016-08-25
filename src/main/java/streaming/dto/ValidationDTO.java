@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
  */
 public class ValidationDTO {
     
-    @Size(min = 3, max = 5)
+    @Size(min = 3, max = 5, message = " doit etre compris entre 3 et 5 caracteres")
     private String str1;
     
             

@@ -18,6 +18,7 @@
             <th><a href="<spring:url value="/ajouter_films"></spring:url>" >Ajouter Films</a>***</th>
             <th><a href="<spring:url value="/lister_genres"></spring:url>" >Liste Genres</a>***</th>
             <th><a href="<spring:url value="/ajouter_genre"></spring:url>" >Ajouter Genres</a>***</th>
+            <th><a href="<spring:url value="/validation"></spring:url>" >Validateur form</a>***</th>
             </tr>
         </table>
     </div> 

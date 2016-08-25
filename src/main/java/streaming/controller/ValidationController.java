@@ -37,7 +37,7 @@ public class ValidationController {
         if(result.hasErrors())
             return "validation_form";
         
-        return("redirect:/home");
+        return "redirect:/home";
         
     }
     
