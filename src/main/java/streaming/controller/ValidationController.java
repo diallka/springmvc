@@ -23,6 +23,8 @@ public class ValidationController {
     
     @RequestMapping(value = "/validation", method = RequestMethod.GET)
     public String validationGET(Model m){
+        int a=0;
+        int b=10/a;
         
         m.addAttribute("validator", new ValidationDTO());
         
