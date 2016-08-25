@@ -47,9 +47,15 @@ public class FilmController {
     //***************************************************************************************
     @RequestMapping(value = "/ajouter_3_films", method = RequestMethod.POST)
     public String ajouter3FilmsPOST(@ModelAttribute("dto") FilmsDTO monDTO){
-        fCrudService.save(monDTO.getFilm1());
-        fCrudService.save(monDTO.getFilm2());
-        fCrudService.save(monDTO.getFilm3());
+//        fCrudService.save(monDTO.getFilm1());
+//        fCrudService.save(monDTO.getFilm2());
+//        fCrudService.save(monDTO.getFilm3());
+          Film film1 = new Film();
+          film1.setTitre(monDTO.getFilm1().getTitre());
+          film1.setAnneeProd(monDTO.getFilm1().getAnneeProd());
+          film1.setSynopsis(monDTO.getFilm1().getSynopsis());
+          film1.setGenre(monDTO.getFilm1().getGenre());
+          fCrudService.save(film1);
         
         return "redirect:/lister_films";
         
