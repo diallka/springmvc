@@ -33,13 +33,15 @@ public class FilmController {
     @Autowired //Obligatoire sinon renvoit NuLLPointException
     private GenreCrudService gCrudService;
     
-    
+    //***************************************************************************************
+    //***************************************************************************************
     @RequestMapping(value = "/ajouter_3_films", method = RequestMethod.GET)
     public String ajouter3FilmsGET(Model m){
         m.addAttribute("dto", new FilmsDTO());
         return "ajout_3_films";
         
     }
+    //***************************************************************************************
     @RequestMapping(value = "/ajouter_3_films", method = RequestMethod.POST)
     public String ajouter3FilmsPOST(@ModelAttribute("dto") FilmsDTO monDTO){
         Film film1 = new Film();
@@ -54,7 +56,7 @@ public class FilmController {
         film3.setTitre(monDTO.getFilm3());
         fCrudService.save(film3);
         
-        return "ajouter_3_films";
+        return "redirect:/lister_films";
         
     }
     //***************************************************************************************

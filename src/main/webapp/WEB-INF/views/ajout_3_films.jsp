@@ -15,9 +15,13 @@
     <body>
         <h1>Ajout 3 Films</h1>
         <form:form modelAttribute="dto">
-            <form:input path="film1"/>
-            <form:input path="film2"/>
-            <form:input path="film3"/>
+             Titre: <form:input path="film1.titre"></form:input>
+                <br/>
+                Année: <form:input path="film1.anneeProd"></form:input>
+                <br/>
+                Synopsis: <form:textarea path="film1.synopsis"></form:textarea>
+                <br/>
+          
             
             <input type="submit" value="ajouter"/>
         </form:form>
