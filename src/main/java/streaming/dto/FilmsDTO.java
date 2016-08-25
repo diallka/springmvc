@@ -5,40 +5,40 @@
  */
 package streaming.dto;
 
+import streaming.entity.Film;
+
 /**
  *
  * @author pro
  */
 public class FilmsDTO {
-    
-    String film1;
-     String film2;
-      String film3;
 
-    public String getFilm1() {
+    Film film1;
+    Film film2;
+    Film film3;
+
+    public Film getFilm1() {
         return film1;
     }
 
-    public void setFilm1(String film1) {
+    public void setFilm1(Film film1) {
         this.film1 = film1;
     }
 
-    public String getFilm2() {
+    public Film getFilm2() {
         return film2;
     }
 
-    public void setFilm2(String film2) {
+    public void setFilm2(Film film2) {
         this.film2 = film2;
     }
 
-    public String getFilm3() {
+    public Film getFilm3() {
         return film3;
     }
 
-    public void setFilm3(String film3) {
+    public void setFilm3(Film film3) {
         this.film3 = film3;
     }
-      
-      
-    
+
 }
